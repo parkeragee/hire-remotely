@@ -1,0 +1,34 @@
+<div class="container">
+	<% if (session.authenticated && session.User.admin) { %>
+		<h3>Admin Dashobard | Properties</h3>
+	<% } else { %>
+		<h3><%= session.User.name %>'s Properties</h3>
+	<% } %>
+	<table class="table">
+		<tr>
+			<th>Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip Code</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+
+		<% _.each(properties, function(property) { %>
+		<tr data-id="<%= property.id %>" data-model="property">
+			<td><%= property.streetAddress %></td>
+			<td><%= property.city %></td>
+			<td><%= property.state %></td>
+			<td><%= property.zip %></td>
+			<td><a href="/property/show/<%= property.id %>" class="btn btn-default btn-sm">Show</a></td>
+			<td><a href="/property/edit/<%= property.id %>" class="btn btn-info btn-sm">Edit</a></td>
+			<td><form action="/property/delete/<%= property.id %>" method="POST">
+				<input type="hidden" name="_method" value="delete" />
+				<input type="hidden" name="_csrf" value="<%= _csrf %>">
+				<input type="submit" class="btn btn-danger btn-sm" value="Delete" />
+			</form></td>
+		</tr>
+		<% }) %>
+	</table> 
+</div>

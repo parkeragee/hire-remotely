@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<a href="/post" class="btn btn-info col-xs-12">Post Job</a>
+			<div class="clearfix"></div>
+			<hr />
+			<div class="well">
+				<p><strong>$99 <em>for 30 days!</em></strong></p>
+				<p><strong>$149 <em>for premium listing!</em></strong></p>
+			</div>
+		</div>
+		<div class="col-sm-9 posts">
+			<h2>All Jobs</h2>
+			<hr>
+			<% _.each(posts, function(post) { %>
+			<div class="post">
+				<p class="jobTitle"><strong><%= post.jobTitle %></strong></p>
+				<p class="location"><%= post.city %>, <%= post.state %></p>
+				<p class="description"><%= post.jobDescription %></p>
+				<p class="createdAt" datetime="<%= post.createdAt %>"><%= post.createdAt %></p>
+			</div>
+			<% }) %>
+
+			
+		</div>
+	</div>
+</div>

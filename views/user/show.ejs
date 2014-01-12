@@ -1,0 +1,9 @@
+<div class="container">
+	<h3><%= user.name %> </h3>
+	<h4><%= user.address %><br>
+		<%= user.city %>, <%= user.state %> <%= user.zip %></h4>
+	<h4><%= user.phoneNumber %></h4>
+	<h4><a href="mailto:<%= user.email %>"><%= user.email %></a></h4>
+
+	<a class="btn btn-default" href="/user/edit/<%= user.id %>">Edit</a>
+</div>

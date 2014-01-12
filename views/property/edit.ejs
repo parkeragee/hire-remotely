@@ -1,0 +1,9 @@
+<form action="/property/update/<%= property.id %>" method="POST">
+	<input type="text" name="streetAddress" value="<%= property.streetAddress %>">
+	<input type="text" name="city" value="<%= property.city %>">
+	<input type="text" name="state" value="<%= property.state %>">
+	<input type="text" name="zip" value="<%= property.zip %>">
+	<input type="submit" value="Update Property">
+	<input type="hidden" name="_csrf" value="<%= _csrf %>">
+
+</form>

@@ -1,0 +1,23 @@
+<div class="container">
+	<form action="/user/update/<%= user.id %>" method="POST">
+		<input class="form-control" type="text" value="<%= user.name %>" name="name"><br>
+		<input class="form-control" type="text" value="<%= user.address %>" name="address"><br>
+		<input class="form-control" type="text" value="<%= user.city %>" name="city"><br>
+		<input class="form-control" type="text" value="<%= user.state %>" name="state"><br>
+		<input class="form-control" type="text" value="<%= user.zip %>" name="zip"><br>
+		<input class="form-control" type="text" value="<%= user.phoneNumber %>" name="phoneNumber"><br>
+		<input class="form-control" type="text" value="<%= user.email %>" name="email"><br>
+		<% if (session.authenticated && session.User.admin) { %>
+                <% if (user.admin) { %>
+                        <input type="hidden" name="admin" value="unchecked">
+                        <label class="checkbox"><input type="checkbox" name="admin" checked> Admin</label>
+                <% } else { %>
+                        <input type="hidden" name="admin" value="unchecked">
+                        <label class="checkbox"><input type="checkbox" name="admin"> Admin</label>
+                <% } %> 
+        <% } %>
+		<input type="submit" value="Proceed" class="btn btn-success">
+		<input type="hidden" name="_csrf" value="<%= _csrf %>">
+
+	</form>
+</div>

@@ -1,0 +1,21 @@
+	<form method="POST" action="/property/create" class="form-signin">
+
+		<h3>Add new property..</h3>
+
+		<% if(flash && flash.err) { %>
+		<ul class="alert alert-success">
+			<% Object.keys(flash.err).forEach(function(error) { %>
+			<li><%- JSON.stringify(flash.err[error]) %></li>
+			<% }) %>
+		</ul>
+		<% } %>
+
+
+		<input class="form-control" type="text" name="streetAddress" placeholder="Street Address" />
+		<input class="form-control" type="text" name="city" placeholder="City" />
+		<input class="form-control" type="text" name="state" placeholder="State" />
+		<input class="form-control" type="text" name="zip" placeholder="Zip Code" /><br>
+		<input type="hidden" name="userID" value="<%= session.User.id %>" />
+		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+		<input type="submit" class="btn btn-success" value="Add Property" />
+	</form>

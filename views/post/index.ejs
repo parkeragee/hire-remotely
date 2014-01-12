@@ -1,0 +1,63 @@
+<div class="container">
+	<% if (!session.authenticated) { %>
+	<div class="col-md-12 signinPrompt">
+		<form action="/session/create" method="POST" class="form-signin">
+
+			<h3>Please sign in..</h3>
+
+			<% if(flash && flash.err) { %>
+			<ul class="alert alert-success">
+				<% Object.keys(flash.err).forEach(function(error) { %>
+				<li><%- JSON.stringify(flash.err[error]) %></li>
+				<% }) %>
+			</ul>
+			<% } %>
+
+			<input type="text" class="form-control" placeholder="Email address" name="email">
+			<input type="password" class="form-control" placeholder="Password" name="encryptedPassword">
+			<p>Don't have an account? <a href="/user/new">Sign up for free</a></p>
+			<input type="submit" class="btn btn-default" value="Sign-in">
+			<input type="hidden" value="<%= _csrf %>" name="_csrf">
+
+
+		</form>
+	</div>
+	<% } %>
+
+	<% if (session.authenticated) { %>
+	<div class="col-md-6">
+		<h2>Create Your Job Listing</h2>
+	</div>
+  	<form method="POST" action="/post/new" class="col-md-6">
+
+
+		<% if(flash && flash.err) { %>
+    <ul class="alert alert-success">
+        <% Object.keys(flash.err).forEach(function(error) { %>
+        <li><%- JSON.stringify(flash.err[error]) %></li>
+        <% }) %>
+    </ul>
+    <% } %>
+
+		<input type="text" class="form-control" name="jobTitle" placeholder="Job Title" /><br>
+		<select class="form-control" type="text" name="profession">
+			<option>Profession</option>
+			<option value="physician">Physician</option>
+			<option value="physician">Nurse Practitioner</option>
+		</select><br>
+		<select class="form-control" type="text" name="specialty">
+			<option>Specialty</option>
+			<option value="physician">Addictions Medicine</option>
+			<option value="physician">Administration</option>
+		</select><br>
+		<input class="form-control" type="text" name="city" placeholder="City" /><br>
+		<input class="form-control" type="text" name="state" placeholder="State" /><br>
+		<input class="form-control" type="text" name="zip" placeholder="Zip Code" /><br>
+		<textarea class="form-control" name="jobDescription" placeholder="Job Description" rows="10"></textarea><br>
+		<input type="hidden" name="userID" value="<%= session.User.id %>" />
+		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+		<input type="submit" class="btn btn-success" value="Add Property" />
+	</form>
+	<% } %>
+
+</div>

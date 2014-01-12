@@ -1,0 +1,12 @@
+<div class="container">
+	<% _.each(posts, function(post) { %>
+		<p><strong>Job Title: </strong><%= post.jobTitle %></p>
+		<p><strong>Profession: </strong><%= post.profession %></p>
+		<p><strong>Specialty: </strong><%= post.specialty %></p>
+		<p><strong>Location: </strong><%= post.city %>, <%= post.state %></p>
+		<p><strong>Description: </strong><%= post.jobDescription %></p>
+		<a class="btn btn-default" href="/post/show/<%= post.id %>">View</a>
+		<a class="btn btn-default" href="/post/edit/<%= post.id %>">Edit</a>
+		<hr />
+	<% }) %>
+</div>

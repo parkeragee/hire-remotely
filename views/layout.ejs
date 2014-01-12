@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>myApp</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--STYLES-->
+    <link rel="stylesheet" href="/linker/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/linker/styles/custom.css">
+    <!--STYLES END-->
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/"><img src="/images/logo.png"></a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/">All Jobs</a></li>
+      <li><a href="/post">Post a Job</a></li>
+      <% if (session.authenticated && session.User.admin) { %>
+        <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/user">All Users</a></li>
+            <li><a href="/user/new">New User</a></li>
+          </ul>
+        </li> -->
+      <% } %>
+
+      <% if (session.authenticated) { %>
+      <li><a href="/post/all">My Job Posts</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session.User.email %> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/user/show/<%= session.User.id %>">My Profile</a></li>
+          <li class="divider"></li>
+          <li><a href="/session/destroy">Sign Out</a></li>
+        </ul>
+      </li>
+      <% } %>
+
+      <% if (!session.authenticated) { %>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/session/new">Sign In</a></li>
+      <% } %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+    <%- body %>
+
+    <!--SCRIPTS-->
+    <script src="/linker/js/socket.io.js"></script>
+    <script src="/linker/js/sails.io.js"></script>
+    <script src="/linker/js/app.js"></script>
+    <script src="/linker/js/jquery.min.js"></script>
+    <script src="/linker/js/bootstrap.min.js"></script>
+    <!--SCRIPTS END-->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+
+    <script type="text/javascript">
+      setTimeout(function(){
+        $('.createdAt').show('slow');
+      }, 500);
+      var getTime = function() {
+        var now = moment();
+        $('.createdAt').each(function(i, e) {
+            var time = moment($(e).attr('datetime'));
+
+            // if(now.diff(time, 'days') > 1) {
+                $(e).text(time.from(now));
+            // }
+        });
+      };
+      $(document).ready(function(){
+        getTime();
+        setInterval(getTime, 60000);
+      });
+    </script>
+
+
+  </body>
+</html>
