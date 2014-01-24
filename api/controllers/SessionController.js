@@ -11,10 +11,9 @@ module.exports = {
 
 	create: function (req, res, next) {
 		if (!req.param('email') || !req.param('encryptedPassword')) {
-			var usernamePasswordRequiredError = [{name: 'usernamePasswordRequired', message: 'You must enter both a username and password'}];
-
+			var userAndPass = ["Please enter your <strong>username</strong> and <strong>password</strong>"];
 			req.session.flash = {
-				err: usernamePasswordRequiredError
+				err: userAndPass
 			}
 
 			res.redirect('/session/new');
@@ -26,7 +25,7 @@ module.exports = {
 
 			// if no user is found
 			if (!user) {
-				var noAccountError = [{name: 'noAccount', message: 'The email address ' + req.param('email') + ' was not found.'}];
+				var noAccountError = ['The email address <strong>' + req.param('email') + '</strong> was not found.'];
 				req.session.flash = {
 					err: noAccountError
 				}
@@ -39,7 +38,7 @@ module.exports = {
 			    if (err) return next(err);
 
 			    if (!valid) {
-					var wrongPass = [{name: 'wrongPass', message: 'The password entered is incorrect.'}];
+					var wrongPass = ['The password you entered is incorrect.'];
 					req.session.flash = {
 						err: wrongPass
 					}

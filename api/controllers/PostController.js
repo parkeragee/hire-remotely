@@ -6,16 +6,28 @@ module.exports = {
 	},
 
 	new: function (req, res, next) {
-		Post.create(req.params.all(), function newPost (err, post) {
-			if (err) {
-				console.log(err);
-	  			req.session.flash = {
-	  				err: err
-	  			}
-	  			return res.redirect('/post');
-			}
-			res.redirect('/post/all');
+			var stripe = require('stripe')("xooEcmNqzrOaWfeTwjKmmlPnZH2jNfVR");
+			var stripeToken = req.param('stripeToken');
 
+			var charge = stripe.charges.create({
+			  amount: 9900,
+			  currency: "usd",
+			  card: stripeToken,
+			  description: "MedicalCareer Job Posting"
+			}, function(err, charge) {
+			  if (err && err.type === 'StripeCardError') {
+			    res.redirect('/post');
+			  }
+			  Post.create(req.params.all(), function newPost (err, post) {
+				if (err) {
+					var noPass = ['The post could not be completed.'];
+		  			req.session.flash = {
+		  				err: noPost
+		  			}
+		  			// return res.redirect('/post');
+				}
+  			  res.redirect('/post/all');
+			});
 		});
 	},
 
@@ -67,6 +79,19 @@ update: function (req, res, next) {
 			res.view({
 				posts: posts
 			});
+		});
+	},
+
+	postPayment: function (req, res, next) {
+		var stripe = require("stripe")(
+				"xooEcmNqzrOaWfeTwjKmmlPnZH2jNfVR"
+			);
+
+		stripe.charges.create({
+			amount: 9900,
+			currency: "usd",
+			card: "tok_103Hyh2eZvKYlo2CNSFaC8zP", // obtained with Stripe.js
+			description: "Charge for MedicalCareer job posting"
 		});
 	}
   

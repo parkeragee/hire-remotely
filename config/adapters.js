@@ -22,4 +22,16 @@ module.exports.adapters = {
 
   //   schema      : true
   // }
+
+
+  'email': {
+    adapter: 'sails-mandrill',
+    apiKey: process.env.RQQb6d2MdCu6EiP4cyAHDQ, // the api key for your mandrill account
+    from: {
+      name: 'Medical Career',
+      email: 'parker@parkeragee.com'
+    }
+  }
+
+
 };

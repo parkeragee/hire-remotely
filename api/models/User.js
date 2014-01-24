@@ -50,6 +50,11 @@ module.exports = {
   		unique: true
   	},
 
+    billingInfo: {
+      type: 'string',
+      defaultsTo: false
+    },
+
   	encryptedPassword: {
   		type: 'string'
   	},

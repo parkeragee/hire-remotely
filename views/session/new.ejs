@@ -3,11 +3,10 @@
 	<h3>Please sign in..</h3>
 
 	<% if(flash && flash.err) { %>
-	<ul class="alert alert-success">
 		<% Object.keys(flash.err).forEach(function(error) { %>
-		<li><%- JSON.stringify(flash.err[error]) %></li>
+		<!-- <p class="alert alert-danger"><%- JSON.stringify(flash.err[error]) %></p> -->
+		<p class="alert alert-danger"><%- JSON.stringify(flash.err[error]) %></p>
 		<% }) %>
-	</ul>
 	<% } %>
 
 	<input type="text" class="form-control" placeholder="Email address" name="email">
