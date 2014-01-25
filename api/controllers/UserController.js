@@ -36,24 +36,24 @@ module.exports = {
       req.session.authenticated = true;
       req.session.User = user;
 
-      Email.send({
-        to: [{
-          name: 'Parker',
-          email: 'parkeragee@yahoo.com'
-        }, {
-          name: 'Mr. Agee',
-          email: 'parkeragee4744@gmail.com'
-        }],
-        subject: 'Test Email',
-        html: 
-          'I can\'t wait to see you all in Chicago<br/>' +
-          'I loe you so much!!!! ',
-        text: 'text fallback goes here-- in case some recipients (let\'s say the Chipettes)  can\'t receive HTML emails'
-      }, function optionalCallback (err) {
-        if (err) {
-          console.log('No email');
-        }
-      });
+      // Email.send({
+      //   to: [{
+      //     name: 'Parker',
+      //     email: 'parkeragee@yahoo.com'
+      //   }, {
+      //     name: 'Mr. Agee',
+      //     email: 'parkeragee4744@gmail.com'
+      //   }],
+      //   subject: 'Test Email',
+      //   html: 
+      //     'I can\'t wait to see you all in Chicago<br/>' +
+      //     'I loe you so much!!!! ',
+      //   text: 'text fallback goes here-- in case some recipients (let\'s say the Chipettes)  can\'t receive HTML emails'
+      // }, function optionalCallback (err) {
+      //   if (err) {
+      //     console.log('No email');
+      //   }
+      // });
       res.redirect('/user/show/'+user.id);
   	});
   },
