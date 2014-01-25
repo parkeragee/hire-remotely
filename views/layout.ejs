@@ -6,6 +6,7 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!--STYLES-->
+    <link rel="stylesheet" href="/linker/styles/animate.css">
     <link rel="stylesheet" href="/linker/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/linker/styles/custom.css">
     <!--STYLES END-->
@@ -75,8 +76,10 @@
 
     <script type="text/javascript">
       setTimeout(function(){
-        $('.createdAt').show('slow');
-      }, 200);
+        $('.createdAt').css({
+          opacity: '1'
+        });
+      }, 100);
       var getTime = function() {
         var now = moment();
         $('.createdAt').each(function(i, e) {

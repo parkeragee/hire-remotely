@@ -1,4 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+@roboto: 'Roboto', sans-serif;
 @char: #3d3d3d;
+@logoBlue: #2cb2ff;
+@green: #76e970;
+
+body {
+    color: @char;
+}
+
+p {
+    margin-bottom: 0;
+}
 
 .container {
     width: 100%!important;
@@ -102,25 +114,96 @@
     }
 }
 
+.searchBar {
+
+    form {
+
+        input[type="text"] {
+            padding: 20px 12px;
+        }
+
+        input[type="submit"] {
+            margin-top: -42px;
+            background-color: @logoBlue;
+            color: #fff;
+            padding: 9px 12px;
+            font-size: 16px;
+        }
+
+    }
+}
+
+.postBar {
+
+    button {
+
+        background-color: @logoBlue;
+        color: #fff;
+        padding: 9px 12px;
+        font-size: 16px;
+        transition: all 0.5s ease;
+    }
+
+    a:hover > button {
+        color: @logoBlue;
+        background-color: #fff;
+        border: 1px solid @logoBlue;
+    }
+}
+
 .posts {
     
+    -webkit-animation-delay: .85s;
+    -moz-animation-delay: .85s;
+    -o-animation-delay: .85s;
+    -ms-animation-delay: .85s;
+    animation-delay: .85s;
+
     .post {
         padding: 25px 20px;
+        border-bottom: 1px solid #e3e3e3;
     }
 
-    .post:nth-child(odd) {
+    /*.post:nth-child(odd) {
         background-color: #f5f5f5;
-    }
+    }*/
 
     .jobTitle {
-        font-size: 22px;
+        font-size: 2.65rem;
+        font-family: @roboto;
+        font-weight: 600;
+    }
+
+    .company {
+        font-family: @roboto;
+        font-size: 1.75rem;
+    }
+
+    .location {
+        font-family: @roboto;
+        font-size: 1.25rem;
+        color: #888;
+    }
+
+    .description {
+        font-family: @roboto;
+        font-size: 1.55rem;
     }
 
     .createdAt {
-        display: none;
+        opacity: 0;
+        color: @logoBlue;
+        position: relative;
+        top: -50px;
     }
 }
 
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
     border-top: none;
+}
+
+@media (max-width: 767px) {
+    .postBar {
+        margin-top: 20px;
+    }
 }

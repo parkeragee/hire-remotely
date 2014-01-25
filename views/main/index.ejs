@@ -1,23 +1,25 @@
 <div class="container">
+
 	<div class="row">
-		<div class="col-sm-3">
-			<a href="/post" class="btn btn-info col-xs-12">Post Job</a>
-			<div class="clearfix"></div>
-			<hr />
-			<div class="well">
-				<p><strong>$99 <em>for 30 days!</em></strong></p>
-				<p><strong>$149 <em>for premium listing!</em></strong></p>
-			</div>
+		<div class="searchBar col-sm-6 animated fadeInLeft">
+			<form method="POST" action="">
+				<input type="text" name="search" placeholder="Search: 'Physician', 'Nurse'" class="form-control">
+				<input type="submit" class="btn pull-right" value="Search">
+			</form>
 		</div>
-		<div class="col-sm-9 posts">
-			<h2>All Jobs</h2>
-			<hr>
+		<div class="postBar col-sm-6 animated fadeInRight">
+			<a href="/post"><button class="btn col-xs-12">Post Job ($99 or $149/featured)</button></a>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-12 posts animated fadeInUp">
 			<% _.each(posts, function(post) { %>
 			<div class="post">
-				<p class="jobTitle"><strong><%= post.jobTitle %></strong></p>
-				<p class="location"><%= post.city %>, <%= post.state %></p>
+				<p class="jobTitle"><%= post.jobTitle %></p>
+				<p><span class="company"><%= post.company %></span> <span class="location">(<%= post.city %>, <%= post.state %>)</span></p>
 				<p class="description"><%= post.jobDescription %></p>
-				<p class="createdAt" datetime="<%= post.createdAt %>"><%= post.createdAt %></p>
+				<p class="createdAt pull-right" datetime="<%= post.createdAt %>"><%= post.createdAt %></p>
 			</div>
 			<% }) %>
 
