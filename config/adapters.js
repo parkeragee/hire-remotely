@@ -14,24 +14,24 @@
 
 module.exports.adapters = {
 
-  // 'default': 'mongo',
+  'default': 'mongo',
 
-  // mongo: {
-  //   module      : 'sails-mongo',
-  //   url         : process.env.DB_URL,
+  mongo: {
+    module      : 'sails-mongo',
+    url         : process.env.DB_URL,
 
-  //   schema      : true
-  // }
-
-
-  'email': {
-    adapter: 'sails-mandrill',
-    apiKey: process.env.RQQb6d2MdCu6EiP4cyAHDQ, // the api key for your mandrill account
-    from: {
-      name: 'Medical Career',
-      email: 'parker@parkeragee.com'
-    }
+    schema      : true
   }
+
+
+  // 'email': {
+  //   adapter: 'sails-mandrill',
+  //   apiKey: process.env.RQQb6d2MdCu6EiP4cyAHDQ, // the api key for your mandrill account
+  //   from: {
+  //     name: 'Medical Career',
+  //     email: 'parker@parkeragee.com'
+  //   }
+  // }
 
 
 };
