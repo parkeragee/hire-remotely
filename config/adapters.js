@@ -14,14 +14,14 @@
 
 module.exports.adapters = {
 
-  'default': 'mongo',
+  // 'default': 'mongo',
 
-  mongo: {
-    module      : 'sails-mongo',
-    url         : process.env.DB_URL,
+  // mongo: {
+  //   module      : 'sails-mongo',
+  //   url         : process.env.DB_URL,
 
-    schema      : true
-  }
+  //   schema      : true
+  // }
 
 
   // 'email': {
