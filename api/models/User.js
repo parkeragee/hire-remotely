@@ -85,31 +85,11 @@ module.exports = {
      next();
   },
 
-    // beforeCreate: function (values, next) {
-
-    //     var bcrypt = require('bcryptjs');
-    //     bcrypt.genSalt(10, function(err, salt) {
-    //         bcrypt.hash(values.encryptedPassword, salt, function hashCreated (err, encryptedPassword) {
-    //             if (err) return next(err);
-    //             values.encryptedPassword = encryptedPassword;
-    //             next();
-    //         });
-    //     });
-    // }
-
     beforeCreate: function (values, next) {
 
-        var bcrypt = require('bcrypt');
-        // bcrypt.genSalt(10, function(err, salt) {
-        //     bcrypt.hash(values.encryptedPassword, salt, function hashCreated (err, encryptedPassword) {
-        //         if (err) return next(err);
-        //         values.encryptedPassword = encryptedPassword;
-        //         next();
-        //     });
-        // });
-
+        var bcrypt = require('bcryptjs');
         bcrypt.genSalt(10, function(err, salt) {
-            bcrypt.hash(values.encryptedPassword, salt, function hashCreated(err, encryptedPassword) {
+            bcrypt.hash(values.encryptedPassword, salt, function hashCreated (err, encryptedPassword) {
                 if (err) return next(err);
                 values.encryptedPassword = encryptedPassword;
                 next();
