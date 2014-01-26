@@ -21,10 +21,7 @@ module.exports.policies = {
   user: {
   	'new': 'flash',
   	create: 'flash',
-  	show: 'userAccess',
-  	edit: 'userAccess',
-  	update: 'userAccess',
-  	'*': 'admin'
+  	'*': 'flash'
   },
 
   post: {

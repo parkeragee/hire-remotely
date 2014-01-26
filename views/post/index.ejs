@@ -39,10 +39,11 @@
 		    <% } %>
 
 			<input type="text" class="form-control" name="jobTitle" placeholder="Job Title" /><br>
+			<input type="text" class="form-control" name="companyName" value="<%= req.session.User.companyName %>" placeholder="Company Name" /><br>
 			<select class="form-control" type="text" name="profession">
 				<option>Profession</option>
 				<option value="physician">Physician</option>
-				<option value="physician">Nurse Practitioner</option>
+				<option value="nurse practitioner">Nurse Practitioner</option>
 			</select><br>
 			<select class="form-control" type="text" name="specialty">
 				<option>Specialty</option>

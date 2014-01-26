@@ -1,28 +1,8 @@
 <div class="container">
-	<table class="table">
-		<tr>
-			<td>
-				<p><%= user.name %> </p>
-			</td>
-			<td>
-				<p><%= user.address %></p>
-			</td>
-			<td>
-				<p><%= user.city %>, <%= user.state %> <%= user.zip %></p>
-			</td>
-			<td>
-				<p><%= user.phoneNumber %></p>
-			</td>
-			<td>
-				<p><a href="mailto:<%= user.email %>"><%= user.email %></a></p>
-			</td>
-			<td>
-				<p>Billing info on file? <%= user.billingInfo %></p>
-			</td>
-		</tr>
-	
-	</table>
-
+	<h4><%= user.name %> </h4>
+	<h5><%= user.address %></h5>
+	<h5><%= user.city %>, <%= user.state %> <%= user.zip %></h5>
+	<h5><%= user.phoneNumber %></h5>
+	<h5><a href="mailto:<%= user.email %>"><%= user.email %></a></h5>
 	<a class="btn btn-default" href="/user/edit/<%= user.id %>">Edit</a>
-
 </div>

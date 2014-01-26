@@ -6,18 +6,6 @@ module.exports = {
 	},
 
 	new: function (req, res, next) {
-			var stripe = require('stripe')("xooEcmNqzrOaWfeTwjKmmlPnZH2jNfVR");
-			var stripeToken = req.param('stripeToken');
-
-			var charge = stripe.charges.create({
-			  amount: 9900,
-			  currency: "usd",
-			  card: stripeToken,
-			  description: "MedicalCareer Job Posting"
-			}, function(err, charge) {
-			  if (err && err.type === 'StripeCardError') {
-			    res.redirect('/post');
-			  }
 			  Post.create(req.params.all(), function newPost (err, post) {
 				if (err) {
 					var noPass = ['The post could not be completed.'];
@@ -26,7 +14,19 @@ module.exports = {
 		  			}
 		  			// return res.redirect('/post');
 				}
-  			  res.redirect('/post/all');
+				var stripe = require('stripe')("xooEcmNqzrOaWfeTwjKmmlPnZH2jNfVR");
+				var stripeToken = req.param('stripeToken');
+
+				var charge = stripe.charges.create({
+					amount: 9900,
+					currency: "usd",
+					card: stripeToken,
+					description: "MedicalCareer Job Posting"
+				}, function(err, charge) {
+				if (err && err.type === 'StripeCardError') {
+					res.redirect('/post');
+				}
+  			  res.redirect('/');
 			});
 		});
 	},

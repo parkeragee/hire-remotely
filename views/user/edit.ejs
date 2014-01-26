@@ -7,7 +7,6 @@
 		<input class="form-control" type="text" value="<%= user.zip %>" name="zip"><br>
 		<input class="form-control" type="text" value="<%= user.phoneNumber %>" name="phoneNumber"><br>
 		<input class="form-control" type="text" value="<%= user.email %>" name="email"><br>
-		<input class="form-control" type="text" value="<%= user.billingInfo %>" name="billingInfo"><br>
 		<% if (session.authenticated && session.User.admin) { %>
                 <% if (user.admin) { %>
                         <input type="hidden" name="admin" value="unchecked">

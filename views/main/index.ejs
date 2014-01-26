@@ -17,7 +17,7 @@
 			<% _.each(posts, function(post) { %>
 			<div class="post">
 				<p class="jobTitle"><%= post.jobTitle %></p>
-				<p><span class="company"><%= post.company %></span> <span class="location">(<%= post.city %>, <%= post.state %>)</span></p>
+				<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.city %>, <%= post.state %>)</span></p>
 				<p class="description"><%= post.jobDescription %></p>
 				<p class="createdAt pull-right" datetime="<%= post.createdAt %>"><%= post.createdAt %></p>
 			</div>
