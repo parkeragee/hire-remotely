@@ -53,7 +53,7 @@ module.exports = {
       //     console.log(err);
       //   }
       // });
-      res.redirect('/user/show/'+user.id);
+      res.redirect('/post');
   	});
   },
 
