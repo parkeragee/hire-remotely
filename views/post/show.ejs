@@ -1,5 +1,16 @@
 <div class="container">
-		<%= post.jobTitle %>
-		<a href="/post/edit/<%= post.id %>">Edit</a>
-		<hr>
+	<div class="row">
+		<div class="col-md-8 pull-left">
+			<p class="jobTitle"><%= post.jobTitle %></p>
+			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.city %>, <%= post.state %>)</span></p><br>
+		</div>
+		<div class="col-md-4 pull-right">
+			<% if (req.session.User.id == post.userID) { %>
+			<a href="/post/edit/<%= post.id %>">Edit</a>
+			<% } %>
+		</div>
+	</div>
+	<strong><p>Job Description:</p></strong><br>
+	<p class="description"><%= post.jobDescription %></p>
+	<hr>
 </div>

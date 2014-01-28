@@ -32,11 +32,10 @@ module.exports = {
 	},
 
 	all: function (req, res, next) {
-		var id = req.session.User.id;
+		var user = req.session.User.id;
 		Post.find()
-		.where({userID: id})
-		.sort({createdAt: 'desc'})
-		.exec(function foundPosts (err, posts) {
+		.where({userID: user})
+		.exec(function postsFound (err, posts) {
 			if (err) return next(err);
 			res.view({
 				posts: posts
@@ -72,15 +71,6 @@ update: function (req, res, next) {
   		res.redirect('/post/all');
   	});
   },
-
-	all: function (req, res, next) {
-		Post.find(function foundPosts (err, posts) {
-			if (err) return next(err);
-			res.view({
-				posts: posts
-			});
-		});
-	},
 
 	postPayment: function (req, res, next) {
 		var stripe = require("stripe")(

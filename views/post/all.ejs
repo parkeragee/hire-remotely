@@ -1,3 +1,5 @@
+<h1><%= req.session.User.id %></h1>
+
 <div class="container">
 	<% _.each(posts, function(post) { %>
 		<p><strong>Job Title: </strong><%= post.jobTitle %></p>
