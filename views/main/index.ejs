@@ -3,12 +3,19 @@
 	<div class="row">
 		<div class="searchBar col-sm-6 animated fadeInLeft">
 			<form method="POST" action="/search/post">
+				<select>
+					<option selected="selected" disabled>Select Profession</option>
+					<option>Physician</option>
+				</select>
+				<select>
+					<option selected="selected" disabled>Select Specialty</option>
+				</select>
 				<input type="text" name="searchQuery" placeholder="Search: 'Physician', 'Nurse'" class="form-control">
 				<input type="submit" class="btn pull-right" value="Search">
 			</form>
 		</div>
 		<div class="postBar col-sm-6 animated fadeInRight">
-			<a href="/post"><button class="btn col-xs-12">Post Job ($99 or $149/featured)</button></a>
+			<a href="/post"><button class="btn col-xs-12">Post Job</button></a>
 		</div>
 	</div>
 	<br>

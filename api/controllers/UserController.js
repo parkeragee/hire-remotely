@@ -35,24 +35,6 @@ module.exports = {
 
       req.session.authenticated = true;
       req.session.User = user;
-
-      // var email = require('sails-mandrill');
-      // var recipients = [{
-      //   email: 'name@email.com',
-      //   name: 'John Smith'
-      // }];
-      // email.send({
-      //   to: recipients,
-      //   subject: 'Test Email',
-      //   html: 
-      //     'I can\'t wait to see you all in Chicago<br/>' +
-      //     'I loe you so much!!!! ',
-      //   text: 'text fallback goes here-- in case some recipients (let\'s say the Chipettes)  can\'t receive HTML emails'
-      // }, function optionalCallback (err) {
-      //   if (err) {
-      //     console.log(err);
-      //   }
-      // });
       res.redirect('/post');
   	});
   },

@@ -93,6 +93,9 @@
       $(document).ready(function(){
         getTime();
         setInterval(getTime, 60000);
+        if($('.posts').children().length == 0) {
+          $('.posts').append('<h5>No search results found.</h5>');
+        }
       });
     </script>
 

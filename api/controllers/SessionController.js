@@ -52,7 +52,7 @@ module.exports = {
 			    	res.redirect('/user');
 			    	return;
 			    }
-			    res.redirect('/user/show/' + user.id);
+			    res.redirect('/post');
 			}); 
 		});
 	},
