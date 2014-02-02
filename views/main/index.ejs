@@ -3,12 +3,15 @@
 	<div class="row">
 		<div class="searchBar col-sm-6 animated fadeInLeft">
 			<form method="POST" action="/search/post">
-				<select>
-					<option selected="selected" disabled>Select Profession</option>
-					<option>Physician</option>
+				<select name="profession">
+					<option selected="selected" value="none" disabled>Select Profession</option>
+					<option value="physician">Physician</option>
+					<option value="nurse practitioner">Nurse Practitioner</option>
 				</select>
-				<select>
+				<select name="specialty">
 					<option selected="selected" disabled>Select Specialty</option>
+					<option value="addictions medicine">Addictions Medicine</option>
+				<option value="administration">Administration</option>
 				</select>
 				<input type="text" name="searchQuery" placeholder="Search: 'Physician', 'Nurse'" class="form-control">
 				<input type="submit" class="btn pull-right" value="Search">
