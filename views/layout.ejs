@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <title>Medical Career | The Simple Medical Job Board</title>
 
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/linker/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/linker/styles/custom.css">
     <!--STYLES END-->
-
+    <script src="/staticJS/angular.min.js"></script>
   </head>
 
   <body>
@@ -70,9 +70,8 @@
     <script src="/linker/js/app.js"></script>
     <script src="/linker/js/jquery.min.js"></script>
     <script src="/linker/js/bootstrap.min.js"></script>
+    <script src="/linker/js/moment.min.js"></script>
     <!--SCRIPTS END-->
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
 
     <script type="text/javascript">
       setTimeout(function(){
@@ -93,8 +92,15 @@
       $(document).ready(function(){
         getTime();
         setInterval(getTime, 60000);
-        if($('.posts').children().length == 0) {
-          $('.posts').append('<h5>No search results found.</h5>');
+        var i = $('.jobTitle').length;
+        if(i == 0) {
+          $('.resultsCount').append('No jobs were found');
+        }
+        else if(i == 1) {
+          $('.resultsCount').append(i + ' job found');
+        }
+        else {
+          $('.resultsCount').append(i + ' jobs found');
         }
       });
     </script>
