@@ -8,11 +8,11 @@ module.exports = {
 	new: function (req, res, next) {
 			  Post.create(req.params.all(), function newPost (err, post) {
 				if (err) {
-					var noPass = ['The post could not be completed.'];
+					var noPost = ['The post could not be completed.'];
 		  			req.session.flash = {
 		  				err: noPost
 		  			}
-		  			// return res.redirect('/post');
+		  			return res.redirect('/post');
 				}
 				var stripe = require('stripe')("xooEcmNqzrOaWfeTwjKmmlPnZH2jNfVR");
 				var stripeToken = req.param('stripeToken');
