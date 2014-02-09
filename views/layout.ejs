@@ -84,14 +84,20 @@
         $('.createdAt').each(function(i, e) {
             var time = moment($(e).attr('datetime'));
 
-            // if(now.diff(time, 'days') > 1) {
-                $(e).text(time.from(now));
-            // }
+            // **** PLAYING AROUND TO FIND EXPIRED POSTS ****
+
+            // var doy = time.dayOfYear();
+            // var daysLeft = time.dayOfYear() - 30;
+            // console.log('Day of year' + doy);
+            // console.log('Days left' + daysLeft);
+            // console.log('Next post');
+            
+              $(e).text(time.from(now));
         });
       };
       $(document).ready(function(){
         getTime();
-        setInterval(getTime, 60000);
+        setInterval(getTime, 600000);
         var i = $('.jobTitle').length;
         if(i == 0) {
           $('.resultsCount').append('No jobs were found');
@@ -103,7 +109,31 @@
           $('.resultsCount').append(i + ' jobs found');
         }
       });
-    </script>
+      $('.viewJob').each(function(){
+        $(this).on('click', function(){
+          var jobID = $(this).attr('data-job');
+          $.ajax({
+            type: 'POST',
+            url: '/post/addView',
+            data: {
+              jobID: jobID
+            } 
+          });
+        });
+      });
+      $('.jobSubmission').each(function(){
+        $(this).on('click', function(){
+          var jobID = $(this).attr('data-job');
+          $.ajax({
+            type: 'POST',
+            url: '/post/addSubmission',
+            data: {
+              jobID: jobID
+            } 
+          });
+        });
+      });
+  </script>
 
 
   </body>

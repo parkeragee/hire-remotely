@@ -17,13 +17,13 @@ module.exports = {
   	},
 
   	profession: {
-  		type: 'string',
-  		required: true
+      type: 'string',
+      required: true
   	},
 
   	specialty: {
   		type: 'string',
-  		required: true	
+      required: true
   	},
 
   	city: {
@@ -43,9 +43,29 @@ module.exports = {
   	},
 
   	jobDescription: {
-  		type: 'text',
-  		required: true
-  	}
+      type: 'string',
+      required: true
+  	},
+
+    active: {
+      type: 'boolean',
+      defaultsTo: true
+    },
+
+    views: {
+      type: 'integer',
+      defaultsTo: '0'
+    },
+
+    submissions: {
+      type: 'integer',
+      defaultsTo: '0'
+    },
+
+    conversion: {
+      type: 'integer',
+      defaultsTo: '0'
+    }
     
   }
 

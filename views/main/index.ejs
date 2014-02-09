@@ -29,7 +29,10 @@
 				<p class="jobTitle"><%= post.jobTitle %></p>
 				<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.city %>, <%= post.state %>)</span></p>
 				<p class="description"><%= post.jobDescription %></p>
-				<a class="btn btn-default" href="/post/show/<%= post.id %>">View Job</a>
+				<p class="description"><strong>Views:</strong> <%= post.views %></p>
+				<p class="description"><strong>Applicants:</strong> <%= post.submissions %></p>
+				<p class="description"><strong>Conversion Rate:</strong> <%= post.conversion %>%</p>
+				<a class="btn btn-default viewJob" href="/post/show/<%= post.id %>" data-job="<%= post.id %>">View Job</a>
 				<% if (req.session.authenticated && req.session.User.id == post.userID) { %>
 				<a class="btn btn-default" href="/post/edit/<%= post.id %>">Edit Job</a>
 				<% } %>

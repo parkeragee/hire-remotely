@@ -12,6 +12,7 @@
         "stripe": "2.3.4",
         "sails-disk": "~0.9.0",
         "ejs": "0.8.4",
+        "moment": "2.5.1",
         "sails-mandrill": "0.0.5",
         "optimist": "0.3.4"
     },
