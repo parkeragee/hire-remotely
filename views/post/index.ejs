@@ -25,10 +25,10 @@
 	<% } %>
 
 	<% if (session.authenticated) { %>
-		<div class="col-md-6">
+		<div class="col-sm-6 col-sm-offset-3">
 			<h2>Create Your Job Listing</h2>
 		</div>
-		<form action="/post/new" class="col-md-6" method="POST">
+		<form action="/post/new" class="col-sm-6 col-sm-offset-3" method="POST">
 
 			<% if(flash && flash.err) { %>
 		    <ul class="alert alert-success">
@@ -37,24 +37,51 @@
 		        <% }) %>
 		    </ul>
 		    <% } %>
+		    <h4>About the position</h4>
+		    <hr>
 
-			<input type="text" class="form-control" name="jobTitle" placeholder="Job Title" /><br>
-			<input type="text" class="form-control" name="companyName" value="<%= req.session.User.companyName %>" placeholder="Company Name" /><br>
+		    <label>Job Title:</label>
+			<input type="text" class="form-control" name="jobTitle" /><br>
+
+			<label>Position Type:</label>
 			<select class="form-control" type="text" name="profession">
-				<option>Profession</option>
-				<option value="physician">Physician</option>
-				<option value="nurse practitioner">Nurse Practitioner</option>
+				<option>Select One</option>
+				<option value="programming">Programming</option>
+				<option value="design">Design</option>
+				<option value="systemAdmin">System Admin</option>
+				<option value="businessAdmin">Business Admin/Executive</option>
+				<option value="sales">Sales</option>
+				<option value="customerSupport">Customer Support</option>
+				<option value="misc">Miscellaneous</option>
 			</select><br>
-			<select class="form-control" type="text" name="specialty">
-				<option>Specialty</option>
-				<option value="addictions medicine">Addictions Medicine</option>
-				<option value="administration">Administration</option>
+
+			<label>Brief Description to Attract Applicants:<br><span class="lead" style="font-size:14px;">max 50 characters</span></label>
+			<input type="text" class="form-control" name="oneLiner" placeholder="e.g. Want to work 4 days a week and get paid for 5?" maxlength="50"/><br>
+
+			<label>Job Description:</label>
+			<textarea class="form-control" name="jobDescription" rows="10"></textarea><br>
+
+			<label>How should people apply?<br><span class="lead" style="font-size:14px;">example: Email resume to name@company.com<span></label>
+			<textarea class="form-control" name="howToApply" rows="4"></textarea>
+
+			<h4>About the Company</h4>
+			<hr>
+
+			<label>Company Name:</label>
+			<input type="text" class="form-control" name="companyName" value="<%= req.session.User.companyName %>" placeholder="e.g. Google" /><br>
+
+			<label>Home Office:</label>
+			<input type="text" class="form-control" name="homeOffice" placeholder="e.g. San Francisco, CA" /><br>
+
+			<label>Company URL:</label>
+			<input type="text" class="form-control" name="companyURL" placeholder="hireremotely.co" /><br>
+
+			<label>U.S. applicants only?</label>
+			<select class="form-control" type="text" name="usOnly">
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
 			</select><br>
-			<input class="form-control" type="text" name="city" placeholder="City" /><br>
-			<input class="form-control" type="text" name="state" placeholder="State" /><br>
-			<input class="form-control" type="text" name="zip" placeholder="Zip Code" /><br>
-			<textarea class="form-control" name="jobDescription" placeholder="Job Description" rows="10"></textarea><br>
-			<!-- <input type="checkbox" id="premiumListing" name="highlighted" checked> <span>Premium Job Listing? <em>(aditional $50)</em></span><br> -->
+
 			<input type="hidden" name="userID" value="<%= session.User.id %>" />
 			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
 

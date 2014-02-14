@@ -59,6 +59,10 @@ module.exports = function (grunt) {
     // Load jQuery before Bootstrap
     'linker/js/jquery.min.js',
 
+    'linker/js/bootstrap.min.js',
+
+    'linker/js/jquery.hotkeys.js',
+
     // All of the rest of your app scripts imported here
     'linker/**/*.js'
   ];

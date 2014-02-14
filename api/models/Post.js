@@ -21,31 +21,35 @@ module.exports = {
       required: true
   	},
 
-  	specialty: {
-  		type: 'string',
+    jobDescription: {
+      type: 'text',
       required: true
-  	},
+    },
 
-  	city: {
-  		type: 'string',
-  		required: true
-  	},
+    howToApply: {
+      type: 'text',
+      required: true
+    },
 
-  	state: {
-  		type: 'string',
-  		required: true
-  	},
-
-  	zip: {
-  		type: 'integer',
-  		maxLength: '5',
-  		required: true
-  	},
-
-  	jobDescription: {
+    companyName: {
       type: 'string',
       required: true
-  	},
+    },
+
+    homeOffice: {
+      type: 'string',
+      required: true
+    },
+
+    companyURL: {
+      type: 'string',
+      required: true
+    },
+
+    usOnly : {
+      type: 'string',
+      required: true
+    },
 
     active: {
       type: 'boolean',
