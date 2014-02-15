@@ -12,8 +12,8 @@
     <!--STYLES END-->
   </head>
 
-  <body>
-    <nav class="navbar navbar-inverse" role="navigation">
+  <body style="padding-top:90px;">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -29,7 +29,6 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <li><a href="/">All Jobs</a></li>
-      <li><a href="/post">Post a Job</a></li>
       <% if (session.authenticated && session.User.admin) { %>
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
@@ -53,9 +52,8 @@
       <% } %>
 
       <% if (!session.authenticated) { %>
-      <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/about">About Us</a></li>
       <li><a href="/session/new">Sign In</a></li>
+      <li><a href="/post" id="postJob">Post a Job</a></li>
       <% } %>
     </ul>
   </div><!-- /.navbar-collapse -->

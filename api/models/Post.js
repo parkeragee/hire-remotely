@@ -31,6 +31,11 @@ module.exports = {
       required: true
     },
 
+    oneLiner: {
+      type: 'text',
+      required: true
+    },
+
     companyName: {
       type: 'string',
       required: true

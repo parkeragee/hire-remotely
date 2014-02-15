@@ -6,11 +6,11 @@
 
 body {
     color: @char;
-    -webkit-user-select: none;  
-    -moz-user-select: none;     
-    -ms-user-select: none;      
-    -o-user-select: none;
-    user-select: none;
+    -webkit-user-select: @logoBlue;  
+    -moz-user-select: @logoBlue;     
+    -ms-user-select: @logoBlue;      
+    -o-user-select: @logoBlue;
+    user-select: @logoBlue;
 }
 
 p {
@@ -25,6 +25,7 @@ p {
 .nav {
     position: relative;
     top: 8px;
+    padding-right: 15px;
 }
 
 .navbar-brand img {
@@ -34,6 +35,32 @@ p {
 .navbar {
     border-radius: 0;
     background-color: @char;
+    padding-left: 15px;
+    padding-right: 35px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: @logoBlue;
+}
+
+#postJob {
+    background-color: @logoBlue;
+    padding: 8px 24px;
+    position: relative;
+    top: 6px;
+    border-radius: 5px;
+    border: 1px solid @logoBlue;
+    transition: all 0.5s ease;
+}
+
+#postJob:hover {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
 }
 
 .form-signin
@@ -132,23 +159,20 @@ p {
 
 .searchBar {
 
-    form {
 
         input[type="text"] {
-            padding: 20px 12px;
+            padding: 16px 12px;
         }
 
         input[type="submit"] {
-            margin-top: -42px;
+            margin-top: -33px;
             background-color: @logoBlue;
             color: #fff;
-            padding: 9px 12px;
+            padding: 4px 12px;
             font-size: 16px;
             position: relative;
             z-index: 9999;
         }
-
-    }
 }
 
 .postBar {
@@ -216,6 +240,12 @@ p {
         font-size: 1.55rem;
     }
 
+    .oneLiner {
+        font-family: @roboto;
+        font-size: 1.55rem;
+        color: #888;
+    }
+
     .createdAt {
         opacity: 0;
         color: @logoBlue;
@@ -235,5 +265,18 @@ p {
     .createdAt {
         float: none!important;
         top: 0!important;
+    }
+
+    .navbar {
+        padding-right: 15px;
+    }
+
+    .navbar-toggle {
+        position: relative;
+        top: 8px;
+    }
+
+    .fadeInLeft {
+        margin-bottom: 20px;
     }
 }

@@ -1,14 +1,23 @@
 <div class="container">
 	<div class="row">
-		<div class="searchBar col-sm-6 animated fadeInLeft">
+		<div class="col-sm-4 col-sm-offset-2 animated fadeInLeft">
 			<form method="POST" action="/search/post">
-				<input type="text" name="searchQuery" placeholder="Search: 'Javascript Developer', 'Web Designer'" class="form-control">
+			<select class="form-control" name="profession">
+				<option value="all">Select Category</option>
+				<option value="programming">Programming</option>
+				<option value="design">Design</option>
+				<option value="systemAdmin">System Admin</option>
+				<option value="businessAdmin">Business Admin/Executive</option>
+				<option value="sales">Sales</option>
+				<option value="customerSupport">Customer Support</option>
+				<option value="misc">Miscellaneous</option>
+			</select>
+		</div>
+		<div class="searchBar col-sm-4 animated fadeInRight">
+				<input type="text" name="searchQuery" placeholder="Search: 'Web Designer'" class="form-control">
 				<input type="submit" class="btn pull-right" value="Search">
 			</form>
 		</div>
-		<!-- <div class="postBar col-sm-6 animated fadeInRight">
-			<a href="/post"><button class="btn col-xs-12">Post Job ($99 or $149/featured)</button></a>
-		</div> -->
 	</div>
 	<br>
 	<div class="row">

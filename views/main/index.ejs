@@ -1,25 +1,24 @@
 <div class="container">
 
 	<div class="row">
-		<div class="searchBar col-sm-8 col-sm-offset-2 animated fadeInLeft">
+		<div class="col-sm-4 col-sm-offset-2 animated fadeInLeft">
 			<form method="POST" action="/search/post">
-				<!-- <select name="profession">
-					<option>Select One</option>
-					<option value="programming">Programming</option>
-					<option value="design">Design</option>
-					<option value="systemAdmin">System Admin</option>
-					<option value="businessAdmin">Business Admin/Executive</option>
-					<option value="sales">Sales</option>
-					<option value="customerSupport">Customer Support</option>
-					<option value="misc">Miscellaneous</option>
-				</select> -->
-				<input type="text" name="searchQuery" placeholder="Search: 'Javascript Developer', 'Web Designer'" class="form-control">
+			<select class="form-control" name="profession">
+				<option value="all">Select Category</option>
+				<option value="programming">Programming</option>
+				<option value="design">Design</option>
+				<option value="systemAdmin">System Admin</option>
+				<option value="businessAdmin">Business Admin/Executive</option>
+				<option value="sales">Sales</option>
+				<option value="customerSupport">Customer Support</option>
+				<option value="misc">Miscellaneous</option>
+			</select>
+		</div>
+		<div class="searchBar col-sm-4 animated fadeInRight">
+				<input type="text" name="searchQuery" placeholder="Search: 'Web Designer'" class="form-control">
 				<input type="submit" class="btn pull-right" value="Search">
 			</form>
 		</div>
-		<!-- <div class="postBar col-sm-6 animated fadeInRight">
-			<a href="/post"><button class="btn col-xs-12">Post Job</button></a>
-		</div> -->
 	</div>
 	<br>
 	<div class="row">
@@ -28,10 +27,7 @@
 			<div class="post">
 				<p class="jobTitle"><a href="/post/show/<%= post.id %>" data-job="<%= post.id %>"><%= post.jobTitle %></a></p>
 				<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.homeOffice %>)</span></p>
-				<p class="description"><%= post.jobDescription %></p>
-				<!-- <p class="description"><strong>Views:</strong> <%= post.views %></p>
-				<p class="description"><strong>Applicants:</strong> <%= post.submissions %></p>
-				<p class="description"><strong>Conversion Rate:</strong> <%= post.conversion %>%</p> -->
+				<p class="oneLiner"><%= post.oneLiner %></p>
 				<% if (req.session.authenticated && req.session.User.id == post.userID) { %>
 				<a href="/post/edit/<%= post.id %>">Edit Job</a>
 				<% } %>
