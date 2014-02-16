@@ -121,9 +121,7 @@ module.exports = {
 		},{
 		  active: false
 		}, function(err, posts) {
-		  if (err) {
-		    return console.log(err);
-		  }
+		  if (err) return console.log(err);
 		});
 	}
   

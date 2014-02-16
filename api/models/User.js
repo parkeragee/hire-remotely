@@ -118,7 +118,7 @@ module.exports = {
       var mailOptions = {
           from: "Hire Remotely <info@hireremotely.co>", // sender address
           to: values.email, // list of receivers
-          subject: "Hire Remotely Registration Confirmation, // Subject line
+          subject: "Hire Remotely Registration Confirmation", // Subject line
           text: "Thank you for registering at HireRemotely.co", // plaintext body
           html: "<h3>Thank you for registering at HireRemotely.co</h3> <br /> <p>We look forward to servicing all of your hiring needs. <br /> If there is anything we can do to assist you, please reply to this email and we will respond within 24 hours.</p>" // html body
       }
