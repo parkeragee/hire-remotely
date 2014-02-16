@@ -137,6 +137,15 @@
         });
       });
       $('#editor').wysiwyg();
+      $('#postSubmit').submit(function(){
+        var html = $('#editor').cleanHtml();
+        var param = "<input type='text' name='jobDescription' value='" + html + "' />";
+        $("#postSubmit").append(param);
+      }); 
+
+      // GET JOB DESCRIPTION HTML AND APPEND
+      var postHtml = $('.getHtml').text();
+      $('.job-info').append(postHtml);
   </script>
 
 

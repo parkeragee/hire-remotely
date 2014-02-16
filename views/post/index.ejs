@@ -28,7 +28,7 @@
 		<div class="col-sm-6 col-sm-offset-3">
 			<h2>Create Your Job Listing</h2>
 		</div>
-		<form action="/post/new" class="col-sm-6 col-sm-offset-3" method="POST">
+		<form action="/post/new" class="col-sm-6 col-sm-offset-3" method="POST" id="postSubmit">
 
 			<% if(flash && flash.err) { %>
 		    <ul class="alert alert-success">
@@ -58,8 +58,8 @@
 			<label>In 50 characters or less, why would anyone want to take this job over the next?<br><span class="lead" style="font-size:14px;">max 50 characters</span></label>
 			<input type="text" class="form-control" name="oneLiner" placeholder="e.g. Google funded startup w/ unlimited vacation!" maxlength="50"/><br>
 
-			<label>Job Description:</label>
-			<textarea class="form-control" name="jobDescription" rows="10"></textarea><br>
+<!-- 			<label>Job Description:</label>
+			<textarea class="form-control" name="jobDescription" rows="10" id="editor"></textarea><br> -->
 
 			<label>Email address you want inquiries to be sent to:<br></label>
 			<input type="email" class="form-control" name="howToApply" placeholder="e.g. hire@hireremotely.co"><br>
@@ -85,17 +85,72 @@
 			<input type="hidden" name="userID" value="<%= session.User.id %>" />
 			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
 
+			<div id="alerts"></div>
+		    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+		      <div class="btn-group">
+		        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="glyphicon glyphicon-font"></i><b class="caret"></b></a>
+		          <ul class="dropdown-menu">
+		          </ul>
+		        </div>
+		      <div class="btn-group">
+		        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="glyphicon glyphicon-text-height"></i>&nbsp;<b class="caret"></b></a>
+		          <ul class="dropdown-menu">
+		          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+		          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+		          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+		          </ul>
+		      </div>
+		      <div class="btn-group">
+		        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="glyphicon glyphicon-bold"></i></a>
+		        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="glyphicon glyphicon-italic"></i></a>
+		        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="glyphicon glyphicon-strikethrough"></i></a>
+		        <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="glyphicon glyphicon-underline"></i></a>
+		      </div>
+		      <div class="btn-group">
+		        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="glyphicon glyphicon-list-ul"></i></a>
+		        <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="glyphicon glyphicon-list-ol"></i></a>
+		        <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="glyphicon glyphicon-indent-left"></i></a>
+		        <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="glyphicon glyphicon-indent-right"></i></a>
+		      </div>
+		      <div class="btn-group">
+		        <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="glyphicon glyphicon-align-left"></i></a>
+		        <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="glyphicon glyphicon-align-center"></i></a>
+		        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="glyphicon glyphicon-align-right"></i></a>
+		        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="glyphicon glyphicon-align-justify"></i></a>
+		      </div>
+		      <div class="btn-group">
+				  <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="glyphicon glyphicon-link"></i></a>
+				    <div class="dropdown-menu input-append">
+					    <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+					    <button class="btn" type="button">Add</button>
+		        </div>
+		        <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="glyphicon glyphicon-cut"></i></a>
 
-		  <script
+		      </div>
+		      
+		      <div class="btn-group">
+		        <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="glyphicon glyphicon-undo"></i></a>
+		        <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="glyphicon glyphicon-repeat"></i></a>
+		      </div>
+		    </div>
+		    <div id="editor" name="jobDescription">
+		      Go ahead&hellip;
+		    </div>
+		    <hr>
+		    <a href="#" id="showHTML">Show HTML</a>
+		    <hr>
+
+		    <input type="submit" value="Submit">
+		  <!-- <script
 		  	src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		  	data-email="<%= req.session.User.email %>"
 		  	data-label="Post Job"
 		    data-key="pk_5VNJq4vTl1I8ZwNssSB7nDKbH5KMy"
 		    data-amount='9900'
-		    data-name="MedicalCareer"
+		    data-name="Hire Remotely"
 		    data-description="30 Day Job Posting ($99)"
 		    data-image="/128x128.png">
-		  </script>
+		  </script> -->
 		</form>
 	<% } %>
 

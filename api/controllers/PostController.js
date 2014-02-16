@@ -6,27 +6,27 @@ module.exports = {
 	},
 
 	'new': function (req, res, next) {
-			  Post.create(req.params.all(), function newPost (err, post) {
-				if (err) {
-					var noPost = ['The post could not be completed.'];
-		  			req.session.flash = {
-		  				err: noPost
-		  			}
-		  			return res.redirect('/post');
-				}
-				var stripe = require('stripe')("xooEcmNqzrOaWfeTwjKmmlPnZH2jNfVR");
-				var stripeToken = req.param('stripeToken');
+		Post.create(req.params.all(), function newPost (err, post) {
+			if (err) {
+				var noPost = ['The post could not be completed.'];
+						req.session.flash = {
+							err: noPost
+						}
+						return res.redirect('/post');
+			}
+			var stripe = require('stripe')("xooEcmNqzrOaWfeTwjKmmlPnZH2jNfVR");
+			var stripeToken = req.param('stripeToken');
 
-				var charge = stripe.charges.create({
-					amount: 9900,
-					currency: "usd",
-					card: stripeToken,
-					description: "MedicalCareer Job Posting"
-				}, function(err, charge) {
-				if (err && err.type === 'StripeCardError') {
-					res.redirect('/post');
-				}
-  			  res.redirect('/');
+			var charge = stripe.charges.create({
+				amount: 9900,
+				currency: "usd",
+				card: stripeToken,
+				description: "MedicalCareer Job Posting"
+			}, function(err, charge) {
+			if (err && err.type === 'StripeCardError') {
+				res.redirect('/post');
+			}
+			  res.redirect('/');
 			});
 		});
 	},

@@ -9,12 +9,15 @@
 					<a href="" class="btn<% if (!session.authenticated) { %> jobSubmission <% } %> pull-right" data-job="<%= post.id %>">APPLY FOR POSITION</a>
 				</div>
 			</div>
-			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.city %>, <%= post.state %>)</span></p><br>
+			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.homeOffice %>)</span></p><br>
 			<% if (req.session.authenticated && req.session.User.id == post.userID) { %>
 			<a href="/post/edit/<%= post.id %>">Edit</a>
 			<% } %>
 			<strong><p>Job Description:</p></strong><br>
-			<p class="description"><%= post.jobDescription %></p>
+			<!-- <p class="description"><%= post.jobDescription %></p> -->
+			<div class="getHtml" style="display:none"><%= post.jobDescription %></div>
+			<div class="job-info">
+			</div>
 			<hr>
 			<a href="" class="btn btn-lg jobSubmission center-block" data-job="<%= post.id %>">APPLY FOR POSITION</a>
 		</div>
