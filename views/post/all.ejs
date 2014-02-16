@@ -1,14 +1,19 @@
-<h1><%= req.session.User.id %></h1>
-
 <div class="container">
-	<% _.each(posts, function(post) { %>
-		<p><strong>Job Title: </strong><%= post.jobTitle %></p>
-		<p><strong>Profession: </strong><%= post.profession %></p>
-		<p><strong>Specialty: </strong><%= post.specialty %></p>
-		<p><strong>Location: </strong><%= post.city %>, <%= post.state %></p>
-		<p><strong>Description: </strong><%= post.jobDescription %></p>
-		<a class="btn btn-default" href="/post/show/<%= post.id %>">View</a>
-		<a class="btn btn-default" href="/post/edit/<%= post.id %>">Edit</a>
-		<hr />
-	<% }) %>
+	<div class="col-sm-8 col-sm-offset-2 posts animated fadeInUp">
+		<% _.each(posts, function(post) { %>
+		<div class="post">
+			<p class="jobTitle"><a href="/post/show/<%= post.id %>" data-job="<%= post.id %>"><%= post.jobTitle %></a></p>
+			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.homeOffice %>)</span></p>
+			<p class="oneLiner"><%= post.oneLiner %></p>
+			<p class="createdAt pull-right" data-job="<%= post.id %>" datetime="<%= post.createdAt %>"><%= post.createdAt %></p>
+			<ul class="editScreenLinks">
+				<li><a class="statsBtn" href="/post/show/<%= post.id %>">View</a></li>
+				<li><a class="statsBtn" href="/post/edit/<%= post.id %>">Edit</a></li>
+				<li>Views: <%= post.views %></li>
+				<li>Applicants: <%= post.submissions %></li>
+				<li>Ratio: <%= post.conversion %>%</li>
+			</ul>
+		</div>
+		<% }) %>
+	</div>
 </div>

@@ -1,35 +1,69 @@
+
 <div class="container">
-	<div class="col-md-6">
-		<h2>Edit Your Job Listing</h2>
-	</div>
-	<form method="POST" action="/post/update/<%= post.id %>" class="col-md-6">
 
+		<div class="col-sm-6 col-sm-offset-3">
+			<h2>Edit your job listing</h2>
+		</div>
+		<form action="/post/update/<%= post.id %>" class="col-sm-6 col-sm-offset-3" method="POST">
 
-		<% if(flash && flash.err) { %>
-    <ul class="alert alert-success">
-        <% Object.keys(flash.err).forEach(function(error) { %>
-        <li><%- JSON.stringify(flash.err[error]) %></li>
-        <% }) %>
-    </ul>
-    <% } %>
+			<% if(flash && flash.err) { %>
+		    <ul class="alert alert-success">
+		        <% Object.keys(flash.err).forEach(function(error) { %>
+		        <li><%- JSON.stringify(flash.err[error]) %></li>
+		        <% }) %>
+		    </ul>
+		    <% } %>
+		    <h4>About the position</h4>
+		    <hr>
 
-		<input type="text" class="form-control" name="jobTitle" value="<%= post.jobTitle %>" /><br>
-		<select class="form-control" type="text" name="profession">
-			<option value="<%= post.profession %>"><%= post.profession %></option>
-			<option value="Physician">Physician</option>
-			<option value="Nurse Practitioner">Nurse Practitioner</option>
-		</select><br>
-		<select class="form-control" type="text" name="specialty">
-			<option value="<%= post.specialty %>"><%= post.specialty %></option>
-			<option value="Addictions Medicine">Addictions Medicine</option>
-			<option value="Administration">Administration</option>
-		</select><br>
-		<input class="form-control" type="text" name="city" value="<%= post.city %>" /><br>
-		<input class="form-control" type="text" name="state" value="<%= post.state %>" /><br>
-		<input class="form-control" type="text" name="zip" value="<%= post.zip %>" /><br>
-		<textarea class="form-control" name="jobDescription" rows="10"><%= post.jobDescription %></textarea><br>
-		<input type="hidden" name="userID" value="<%= session.User.id %>" />
-		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
-		<input type="submit" class="btn btn-success" value="Add Property" />
-	</form>
+		    <label>Job Title:</label>
+			<input type="text" class="form-control" name="jobTitle" value="<%= post.jobTitle %>"/><br>
+
+			<label>Position Type:</label>
+			<select class="form-control" type="text" name="profession">
+				<option><%= post.profession %></option>
+				<option value="programming">Programming</option>
+				<option value="design">Design</option>
+				<option value="systemAdmin">System Admin</option>
+				<option value="businessAdmin">Business Admin/Executive</option>
+				<option value="sales">Sales</option>
+				<option value="customerSupport">Customer Support</option>
+				<option value="misc">Miscellaneous</option>
+			</select><br>
+
+			<label>In 50 characters or less, why would anyone want to take this job over the next?<br><span class="lead" style="font-size:14px;">max 50 characters</span></label>
+			<input type="text" class="form-control" name="oneLiner" value="<%= post.oneLiner %>" maxlength="50"/><br>
+
+			<label>Job Description:</label>
+			<textarea class="form-control" name="jobDescription" rows="10"><%= post.jobDescription %></textarea><br>
+
+			<label>Email address you want inquiries to be sent to:<br></label>
+			<input type="email" class="form-control" name="howToApply" value="<%= post.howToApply %>"><br>
+
+			<h4>About the Company</h4>
+			<hr>
+
+			<label>Company Name:</label>
+			<input type="text" class="form-control" name="companyName" value="<%= req.session.User.companyName %>" /><br>
+
+			<label>Home Office:</label>
+			<input type="text" class="form-control" name="homeOffice" value="<%= post.homeOffice %>" /><br>
+
+			<label>Company URL:</label>
+			<input type="text" class="form-control" name="companyURL" value="<%= post.companyURL %>" /><br>
+
+			<label>U.S. applicants only?</label>
+			<select class="form-control" type="text" name="usOnly">
+				<option value="<%= post.usOnly %>"><%= post.usOnly %></option>
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select><br>
+
+			<input type="hidden" name="userID" value="<%= session.User.id %>" />
+			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+
+			<input type="submit" class="btn" value="Save Post" />
+
+		</form>
+
 </div>

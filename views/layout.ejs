@@ -53,8 +53,8 @@
 
       <% if (!session.authenticated) { %>
       <li><a href="/session/new">Sign In</a></li>
-      <li><a href="/post" id="postJob">Post a Job</a></li>
       <% } %>
+      <li><a href="/post" id="postJob">Post a Job</a></li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
@@ -82,16 +82,20 @@
         var now = moment();
         $('.createdAt').each(function(i, e) {
             var time = moment($(e).attr('datetime'));
-
-            // **** PLAYING AROUND TO FIND EXPIRED POSTS ****
-
-            // var doy = time.dayOfYear();
-            // var daysLeft = time.dayOfYear() - 30;
-            // console.log('Day of year' + doy);
-            // console.log('Days left' + daysLeft);
-            // console.log('Next post');
-            
-              $(e).text(time.from(now));
+            var doy = time.dayOfYear();
+            var todaystime = moment().dayOfYear();
+            var diff = todaystime - doy;
+            if(diff >= 30) {
+              var jobIDs = $(this).attr('data-job');
+              $.ajax({
+                type: 'POST',
+                url: '/post/setToInactive',
+                data: {
+                  jobIDs: jobIDs
+                }
+              });
+            }
+            $(e).text(time.from(now));
         });
       };
       $(document).ready(function(){

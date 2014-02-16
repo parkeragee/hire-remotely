@@ -17,6 +17,19 @@ p {
     margin-bottom: 0;
 }
 
+.btn {
+    background: @logoBlue;
+    color: #fff;
+    padding: 8px 34px;
+    border: 1px solid @logoBlue;
+    transition: all 0.5s ease;
+}
+
+.btn:hover {
+    color: @logoBlue;
+    background: transparent;
+}
+
 .container {
     width: 100%!important;
     padding: 0px 15px 40px 15px;
@@ -137,6 +150,28 @@ p {
 {
     display: block;
     margin-top: 10px;
+}
+
+.editScreenLinks {
+    margin-top: 10px;
+    padding-left: 0;
+
+    li {
+        list-style: none;
+        display: inline-block;
+        margin-right: 20px;
+        color: #aaa!important;
+
+        a {
+
+            color: #aaa!important;
+            border: 1px solid;
+            border-radius: 5px;
+            padding: 3px 8px;
+            text-decoration: none;
+
+        }
+    }
 }
 
 #editor {

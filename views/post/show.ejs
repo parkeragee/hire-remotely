@@ -1,17 +1,22 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-8 pull-left">
-			<p class="jobTitle"><%= post.jobTitle %></p>
+		<div class="col-sm-8 col-sm-offset-2">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<p class="jobTitle"><%= post.jobTitle %></p>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<a href="" class="btn<% if (!session.authenticated) { %> jobSubmission <% } %> pull-right" data-job="<%= post.id %>">APPLY FOR POSITION</a>
+				</div>
+			</div>
 			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.city %>, <%= post.state %>)</span></p><br>
-		</div>
-		<div class="col-md-4 pull-right">
 			<% if (req.session.authenticated && req.session.User.id == post.userID) { %>
 			<a href="/post/edit/<%= post.id %>">Edit</a>
 			<% } %>
+			<strong><p>Job Description:</p></strong><br>
+			<p class="description"><%= post.jobDescription %></p>
+			<hr>
+			<a href="" class="btn btn-lg jobSubmission center-block" data-job="<%= post.id %>">APPLY FOR POSITION</a>
 		</div>
 	</div>
-	<strong><p>Job Description:</p></strong><br>
-	<p class="description"><%= post.jobDescription %></p>
-	<hr>
-	<a href="" class="btn btn-lg btn-info jobSubmission" data-job="<%= post.id %>">APPLY FOR POSITION</a>
 </div>

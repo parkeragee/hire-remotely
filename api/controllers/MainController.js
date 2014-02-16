@@ -1,10 +1,12 @@
 module.exports = {
 
 	index: function (req, res, next) {
-		var moment = require('moment');
-		var now = moment().subtract('days', 4);
-		var d = now.format();
-		console.log(d);
+		// var moment = require('moment');
+		// var now = moment();
+		// var d = now.format();
+		// var doy = now.dayOfYear();
+  //       var daysLeft = now.dayOfYear() - 30;
+		// console.log(daysLeft);
 		Post.find()
 		// *** TURN BACK ON ***
 		.where({active: true})
