@@ -116,41 +116,13 @@ module.exports = {
 
 	setToInactive: function (req, res, next) {
 		var jobIDs = req.param('jobIDs');
-		// console.log(jobIDs);
-		// Post.find()
-		// .where({
-		// 	id: jobIDs
-		// })
-		// .then(function (err, post) {
-		// 	if (err) return next(err);
-		// 	var activeState = Post.update({active: false}).then(function(activeState){
-		//         return activeState;
-		//     });
-		// }).fail (function (err) {
-		// 	if (err) return next(err);
-		// })
-		// .done();
-
-		// Post.find()
-		// .where({id: jobIDs})
-		// .done(function (err, posts) {
-		// 	posts.active = false;
-		// 	posts.save(function (err) {
-		// 		if (err) cosole.log('Dadgum error!');
-		// 	});
-		// });
-
 		Post.update({
 		  id: jobIDs
 		},{
 		  active: false
 		}, function(err, posts) {
-		  // Error handling
 		  if (err) {
 		    return console.log(err);
-		  // Updated users successfully!
-		  } else {
-		    console.log("Posts updated:", posts);
 		  }
 		});
 	}
