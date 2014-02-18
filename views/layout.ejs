@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/linker/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/linker/styles/custom.css">
     <!--STYLES END-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="https://checkout.stripe.com/checkout.js"></script>
   </head>
 
   <body style="padding-top:90px;">
@@ -136,10 +138,34 @@
           });
         });
       });
+
+// BEGIN STRIPE CHECKOUT
+
+      // var handler = StripeCheckout.configure({
+      //   key: 'pk_5VNJq4vTl1I8ZwNssSB7nDKbH5KMy',
+      //   image: '/square-image.png',
+      //   token: function(token, args) {
+      //     // Use the token to create the charge with a server-side script.
+      //     // You can access the token ID with `token.id`
+      //   }
+      // });
+
+      // document.getElementById('submitJob').addEventListener('click', function(e) {
+      //   // Open Checkout with further options
+      //   handler.open({
+      //     name: 'Demo Site',
+      //     description: '2 widgets ($20.00)',
+      //     amount: 2000
+      //   });
+      //   e.preventDefault();
+      // });
+
+// END STRIPE CHECKOUT
+
       $('#editor').wysiwyg();
-      $('#postSubmit').submit(function(){
+      $('.stripe-button').click(function(){
         var html = $('#editor').cleanHtml();
-        var param = "<input type='text' name='jobDescription' value='" + html + "' />";
+        var param = "<input type='text' style='display:none' name='jobDescription' value='" + html + "' />";
         $("#postSubmit").append(param);
       }); 
 
