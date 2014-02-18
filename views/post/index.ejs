@@ -30,7 +30,7 @@
 		</div>
 
 			<% if(flash && flash.err) { %>
-		    <ul class="alert alert-success">
+		    <ul class="alert alert-danger">
 		        <% Object.keys(flash.err).forEach(function(error) { %>
 		        <li><%- JSON.stringify(flash.err[error]) %></li>
 		        <% }) %>
@@ -38,7 +38,7 @@
 		    <% } %>
 
 		    <form action="/post/new" class="col-sm-6 col-sm-offset-3" method="POST" id="postSubmit">
-		    	
+
 		    <h4>About the position</h4>
 		    <hr>
 
