@@ -12,6 +12,7 @@
 				<li>Views: <%= post.views %></li>
 				<li>Applicants: <%= post.submissions %></li>
 				<li>Ratio: <%= post.conversion %>%</li>
+				<li>Status: <% if (post.active == 'false') { %> Not Active <% } else { %> Active <% } %></li>
 			</ul>
 		</div>
 		<% }) %>

@@ -35,6 +35,7 @@ module.exports = {
 		var user = req.session.User.id;
 		Post.find()
 		.where({userID: user})
+		.sort({createdAt: 'desc'})
 		.exec(function postsFound (err, posts) {
 			if (err) return next(err);
 			res.view({
@@ -122,6 +123,16 @@ module.exports = {
 		  active: false
 		}, function(err, posts) {
 		  if (err) return console.log(err);
+		});
+	},
+
+	delete: function (req, res, next) {
+		Post.findOne(req.param('id'), function (err, post){
+			if (err) return next(err);
+			Post.destroy(req.param('id'), function (err, destroyed) {
+				if (err) return next(err);
+				res.redirect('/post/all');
+			});
 		});
 	}
   

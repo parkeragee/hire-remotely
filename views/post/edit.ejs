@@ -3,8 +3,12 @@
 
 		<div class="col-sm-6 col-sm-offset-3">
 			<h2>Edit your job listing</h2>
+			<form action="/post/delete" method="POST">
+				<input type="hidden" name="id" value="<%= post.id %>">
+				<input type="submit" value="Delete">
+			</form>
 		</div>
-		<form action="/post/update/<%= post.id %>" class="col-sm-6 col-sm-offset-3" method="POST">
+		<form action="/post/update/<%= post.id %>" class="col-sm-6 col-sm-offset-3" method="POST" id="postSubmit">
 
 			<% if(flash && flash.err) { %>
 		    <ul class="alert alert-success">
@@ -35,7 +39,35 @@
 			<input type="text" class="form-control" name="oneLiner" value="<%= post.oneLiner %>" maxlength="50"/><br>
 
 			<label>Job Description:</label>
-			<textarea class="form-control" name="jobDescription" rows="10"><%= post.jobDescription %></textarea><br>
+			<div id="alerts"></div>
+		    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+		      <div class="btn-group">
+		        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+		          <ul class="dropdown-menu">
+		          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+		          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+		          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+		          </ul>
+		      </div>
+		      <div class="btn-group">
+		        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+		      </div>
+		      <div class="btn-group">
+		      	<a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+		      </div>
+		      <div class="btn-group">
+		      	<a class="btn" data-edit="insertorderedlist" title="" data-original-title="Number list"><i class="fa fa-list-ol"></i></a>
+		      </div>
+		      <div class="btn-group">
+		        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
+		      </div>
+		      
+		    </div>
+		    <div class="getHtml" style="display:none"><%= post.jobDescription %></div>
+		    <div id="editor" name="jobDescription">
+		      
+		    </div>
+		    <br>
 
 			<label>Email address you want inquiries to be sent to:<br></label>
 			<input type="email" class="form-control" name="howToApply" value="<%= post.howToApply %>"><br>
@@ -62,8 +94,11 @@
 			<input type="hidden" name="userID" value="<%= session.User.id %>" />
 			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
 
-			<input type="submit" class="btn" value="Save Post" />
+			<input type="submit" class="btn savePost" value="Save Post" />
 
 		</form>
-
+		<script>
+			var postHtml = $('.getHtml').text();
+	        $('#editor').append(postHtml);
+		</script>
 </div>

@@ -163,7 +163,7 @@
 // END STRIPE CHECKOUT
 
       $('#editor').wysiwyg();
-      $('.stripe-button').click(function(){
+      $('.stripe-button, .savePost').click(function(){
         var html = $('#editor').cleanHtml();
         var param = "<input type='text' style='display:none' name='jobDescription' value='" + html + "' />";
         $("#postSubmit").append(param);
@@ -172,6 +172,8 @@
       // GET JOB DESCRIPTION HTML AND APPEND
       var postHtml = $('.getHtml').text();
       $('.job-info').append(postHtml);
+      var postHtml = $('.getHtml').text();
+      $('#editor').append(postHtml);
   </script>
 
 
