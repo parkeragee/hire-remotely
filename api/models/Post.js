@@ -56,6 +56,11 @@ module.exports = {
       required: true
     },
 
+    userID: {
+      type: 'integer',
+      required: true
+    },
+
     active: {
       type: 'boolean',
       defaultsTo: true

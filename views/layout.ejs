@@ -87,7 +87,7 @@
             var doy = time.dayOfYear();
             var todaystime = moment().dayOfYear();
             var diff = todaystime - doy;
-            if(diff >= 30) {
+            if(diff > 30) {
               var jobIDs = $(this).attr('data-job');
               $.ajax({
                 type: 'POST',
@@ -139,31 +139,8 @@
         });
       });
 
-// BEGIN STRIPE CHECKOUT
-
-      // var handler = StripeCheckout.configure({
-      //   key: 'pk_5VNJq4vTl1I8ZwNssSB7nDKbH5KMy',
-      //   image: '/square-image.png',
-      //   token: function(token, args) {
-      //     // Use the token to create the charge with a server-side script.
-      //     // You can access the token ID with `token.id`
-      //   }
-      // });
-
-      // document.getElementById('submitJob').addEventListener('click', function(e) {
-      //   // Open Checkout with further options
-      //   handler.open({
-      //     name: 'Demo Site',
-      //     description: '2 widgets ($20.00)',
-      //     amount: 2000
-      //   });
-      //   e.preventDefault();
-      // });
-
-// END STRIPE CHECKOUT
-
       $('#editor').wysiwyg();
-      $('.stripe-button, .savePost').click(function(){
+      $('.stripe-button-el, .savePost').click(function(){
         var html = $('#editor').cleanHtml();
         var param = "<input type='text' style='display:none' name='jobDescription' value='" + html + "' />";
         $("#postSubmit").append(param);
@@ -174,6 +151,8 @@
       $('.job-info').append(postHtml);
       var postHtml = $('.getHtml').text();
       $('#editor').append(postHtml);
+
+      
   </script>
 
 

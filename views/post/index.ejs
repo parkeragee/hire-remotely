@@ -3,8 +3,6 @@
 	<div class="col-md-12 signinPrompt">
 		<form action="/session/create" method="POST" class="form-signin">
 
-			<h3>Please sign in..</h3>
-
 			<% if(flash && flash.err) { %>
 			<ul class="alert alert-success">
 				<% Object.keys(flash.err).forEach(function(error) { %>
@@ -15,8 +13,8 @@
 
 			<input type="text" class="form-control" placeholder="Email address" name="email">
 			<input type="password" class="form-control" placeholder="Password" name="encryptedPassword">
-			<p>Don't have an account? <a href="/user/new">Sign up for free</a></p>
-			<input type="submit" class="btn btn-default" value="Sign-in">
+			<input type="submit" class="btn btn-default center-block col-xs-12" value="Login"><br> 
+			<p style="text-align:center;margin-top:30px;">Don't have an account? <a href="/user/new">Sign Up</a></p>
 			<input type="hidden" value="<%= _csrf %>" name="_csrf">
 
 
@@ -27,6 +25,7 @@
 	<% if (session.authenticated) { %>
 		<div class="col-sm-6 col-sm-offset-3">
 			<h2>Create Your Job Listing</h2>
+			<hr>
 		</div>
 
 			<% if(flash && flash.err) { %>
@@ -38,9 +37,6 @@
 		    <% } %>
 
 		    <form action="/post/new" class="col-sm-6 col-sm-offset-3" method="POST" id="postSubmit">
-
-		    <h4>About the position</h4>
-		    <hr>
 
 		    <label>Job Title:</label>
 			<input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="e.g. Ruby on Rails Developer"/><br>
@@ -57,7 +53,7 @@
 				<option value="misc">Miscellaneous</option>
 			</select><br>
 
-			<label>In 50 characters or less, why would anyone want to take this job over the next?<br><span class="lead" style="font-size:14px;">max 50 characters</span></label>
+			<label>Briefly describe something awesome about your company: <br><span class="lead" style="font-size:14px;">(max 50 characters)</span></label>
 			<input type="text" class="form-control" name="oneLiner" id="oneLiner" placeholder="e.g. Google funded startup w/ unlimited vacation!" maxlength="50"/><br>
 
 			<label>Job Description:</label>
@@ -94,9 +90,6 @@
 			<label>Email address you want inquiries to be sent to:<br></label>
 			<input type="email" class="form-control" name="howToApply" id="howToApply" placeholder="e.g. hire@hireremotely.co"><br>
 
-			<h4>About the Company</h4>
-			<hr>
-
 			<label>Company Name:</label>
 			<input type="text" class="form-control" name="companyName" id="companyName" value="<%= req.session.User.companyName %>" placeholder="e.g. Google" /><br>
 
@@ -116,9 +109,8 @@
 			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
 
 		    <hr>
-
-		    <input type="submit" id="submitJob" class="btn stripe-button" value="Post Job" />
-		  <!-- <script
+		    
+		  <script
 		  	src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		  	data-email="<%= req.session.User.email %>"
 		  	data-label="Post Job"
@@ -127,7 +119,7 @@
 		    data-name="Hire Remotely"
 		    data-description="30 Day Job Posting ($99)"
 		    data-image="/128x128.png">
-		  </script> -->
+		  </script>
 		</form>
 	<% } %>
 

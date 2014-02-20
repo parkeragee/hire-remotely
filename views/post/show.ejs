@@ -6,7 +6,7 @@
 					<p class="jobTitle"><%= post.jobTitle %></p>
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<a href="" class="btn<% if (!session.authenticated) { %> jobSubmission <% } %> pull-right" data-job="<%= post.id %>">APPLY FOR POSITION</a>
+					<a data-toggle="modal" data-target="#apply" class="btn<% if (!session.authenticated) { %> jobSubmission <% } %> pull-right" data-job="<%= post.id %>">APPLY FOR POSITION</a>
 				</div>
 			</div>
 			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.homeOffice %>)</span></p><hr>
@@ -18,7 +18,29 @@
 			<div class="job-info">
 			</div>
 			<hr>
-			<a href="" class="btn btn-lg jobSubmission center-block" data-job="<%= post.id %>">APPLY FOR POSITION</a>
+			<a data-toggle="modal" data-target="#apply" class="btn btn-lg<% if (!session.authenticated) { %> jobSubmission<% } %> center-block" data-job="<%= post.id %>">APPLY FOR POSITION</a>
 		</div>
 	</div>
+</div>
+
+
+<div class="modal fade" id="apply" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form action="/post/apply" method="POST">
+        	<div class="col-md-6 col-md-offset-3">
+        	<label>Your email address:</label>
+        	<input type="text" class="form-control" name="applicantEmail" />
+        	<input type="hidden" value="<%= post.id %>" name="id" />
+	        </div>
+	        <div class="clearfix"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Apply</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
