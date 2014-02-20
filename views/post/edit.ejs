@@ -5,7 +5,7 @@
 			<h2>Edit your job listing</h2>
 			<form action="/post/delete" method="POST">
 				<input type="hidden" name="id" value="<%= post.id %>">
-				<input type="submit" value="Delete">
+				<input type="submit" class="deletePost" value="Delete">
 			</form>
 		</div>
 		<form action="/post/update/<%= post.id %>" class="col-sm-6 col-sm-offset-3" method="POST" id="postSubmit">
