@@ -14,14 +14,14 @@ module.exports = {
 						}
 						return res.redirect('/post');
 			}
-			var stripe = require('stripe')("xooEcmNqzrOaWfeTwjKmmlPnZH2jNfVR");
+			var stripe = require('stripe')("YPPIw74xFLEmtdpnUecEgSInS5oXHVBX");
 			var stripeToken = req.param('stripeToken');
 
 			var charge = stripe.charges.create({
 				amount: 9900,
 				currency: "usd",
 				card: stripeToken,
-				description: "MedicalCareer Job Posting"
+				description: "Hire Remotely Job Posting"
 			}, function(err, charge) {
 			if (err && err.type === 'StripeCardError') {
 				res.redirect('/post');
