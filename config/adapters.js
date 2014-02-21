@@ -18,7 +18,7 @@ module.exports.adapters = {
 
   mongo: {
     module      : 'sails-mongo',
-    url         : process.env.DB_URL,
+    url         : "mongodb://hireadmin:!ttilluB1@troup.mongohq.com:10065/hireremotely",
 
     schema      : true
   },
@@ -28,7 +28,7 @@ module.exports.adapters = {
     adapter: 'sails-mandrill',
     apiKey: process.env.RQQb6d2MdCu6EiP4cyAHDQ, // the api key for your mandrill account
     from: {
-      name: 'Medical Career',
+      name: 'Hire Remotely',
       email: 'parker@parkeragee.com'
     }
   }
