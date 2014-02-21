@@ -150,6 +150,11 @@
       var postHtml = $('.getHtml').text();
       $('#editor').append(postHtml);
 
+      var postBody = $('.posts');
+      if (postBody.children().length == 0) {
+        $('.posts').append('<h3 class="noPosts">No job listings just yet</h3>');
+      }
+
       
   </script>
 

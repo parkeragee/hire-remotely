@@ -26,10 +26,10 @@ module.exports = {
   	// Create user with the params sent from sign up form --> new.ejs
   	User.create(req.params.all(), function userCreated (err, user) {
   		if (err) {
-  			console.log(err);
-  			req.session.flash = {
-  				err: err
-  			}
+  			var createFail = ['Please make sure you have entered all fields properly'];
+        req.session.flash = {
+          err: createFail
+        }
   			return res.redirect('/user/new');
   		}
 

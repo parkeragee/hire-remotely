@@ -3,7 +3,7 @@
     <h3>Create a new account..</h3>
 
     <% if(flash && flash.err) { %>
-    <ul class="alert alert-success">
+    <ul class="alert alert-danger">
         <% Object.keys(flash.err).forEach(function(error) { %>
         <li><%- JSON.stringify(flash.err[error]) %></li>
         <% }) %>
