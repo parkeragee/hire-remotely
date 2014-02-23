@@ -69,95 +69,9 @@
     <script src="/linker/js/bootstrap.min.js"></script>
     <script src="/linker/js/jquery.hotkeys.js"></script>
     <script src="/linker/js/bootstrap.wysiwyg.js"></script>
+    <script src="/linker/js/init.min.js"></script>
     <script src="/linker/js/moment.min.js"></script>
     <!--SCRIPTS END-->
-
-    <script type="text/javascript">
-      setTimeout(function(){
-        $('.createdAt').css({
-          opacity: '1'
-        });
-      }, 100);
-      var getTime = function() {
-        var now = moment();
-        $('.createdAt').each(function(i, e) {
-            var time = moment($(e).attr('datetime'));
-            var doy = time.dayOfYear();
-            var todaystime = moment().dayOfYear();
-            var diff = todaystime - doy;
-            if(diff > 30) {
-              var jobIDs = $(this).attr('data-job');
-              $.ajax({
-                type: 'POST',
-                url: '/post/setToInactive',
-                data: {
-                  jobIDs: jobIDs
-                }
-              });
-            }
-            $(e).text(time.from(now));
-        });
-      };
-      $(document).ready(function(){
-        getTime();
-        setInterval(getTime, 600000);
-        var i = $('.jobTitle').length;
-        if(i == 0) {
-          $('.resultsCount').append('No jobs were found');
-        }
-        else if(i == 1) {
-          $('.resultsCount').append(i + ' job found');
-        }
-        else {
-          $('.resultsCount').append(i + ' jobs found');
-        }
-      });
-      $('.viewJob').each(function(){
-        $(this).on('click', function(){
-          var jobID = $(this).attr('data-job');
-          $.ajax({
-            type: 'POST',
-            url: '/post/addView',
-            data: {
-              jobID: jobID
-            } 
-          });
-        });
-      });
-      $('.jobSubmission').each(function(){
-        $(this).on('click', function(){
-          var jobID = $(this).attr('data-job');
-          $.ajax({
-            type: 'POST',
-            url: '/post/addSubmission',
-            data: {
-              jobID: jobID
-            } 
-          });
-        });
-      });
-
-      $('#editor').wysiwyg();
-      $('.stripe-button-el, .savePost').click(function(){
-        var html = $('#editor').cleanHtml();
-        var param = "<input type='text' style='display:none' name='jobDescription' value='" + html + "' />";
-        $("#postSubmit").append(param);
-      }); 
-
-      // GET JOB DESCRIPTION HTML AND APPEND
-      var postHtml = $('.getHtml').text();
-      $('.job-info').append(postHtml);
-      var postHtml = $('.getHtml').text();
-      $('#editor').append(postHtml);
-
-      var postBody = $('.posts');
-      if (postBody.children().length == 0) {
-        $('.posts').append('<h3 class="noPosts">No job listings just yet</h3>');
-      }
-
-      
-  </script>
-
 
   </body>
 </html>
