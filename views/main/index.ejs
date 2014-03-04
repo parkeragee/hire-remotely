@@ -12,6 +12,7 @@
 				<option value="all">Select Category</option>
 				<option value="programming">Programming</option>
 				<option value="design">Design</option>
+				<option value="marketing">Marketing</option>
 				<option value="systemAdmin">System Admin</option>
 				<option value="businessAdmin">Business Admin/Executive</option>
 				<option value="sales">Sales</option>
@@ -31,7 +32,7 @@
 			<% _.each(posts, function(post) { %>
 			<div class="post">
 				<p class="jobTitle"><a <% if (!session.authenticated) { %>class="viewJob" <% } %> href="/post/show/<%= post.id %>" data-job="<%= post.id %>"><%= post.jobTitle %></a></p>
-				<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.homeOffice %>)</span></p>
+				<p><span class="company"><%= post.companyName %></span> <span class="location"><%= post.homeOffice %></span></p>
 				<p class="oneLiner"><%= post.oneLiner %></p>
 				<% if(post.usOnly == "yes") { %><p class="usOnlyTag">U.S. Only</p> <% } %>
 				<% if (req.session.authenticated && req.session.User.id == post.userID) { %>

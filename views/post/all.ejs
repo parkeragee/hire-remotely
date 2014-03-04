@@ -3,7 +3,7 @@
 		<% _.each(posts, function(post) { %>
 		<div class="post">
 			<p class="jobTitle"><a href="/post/show/<%= post.id %>" data-job="<%= post.id %>"><%= post.jobTitle %></a></p>
-			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.homeOffice %>)</span></p>
+			<p><span class="company"><%= post.companyName %></span> <span class="location"><%= post.homeOffice %></span></p>
 			<p class="oneLiner"><%= post.oneLiner %></p>
 			<p class="createdAt pull-right" data-job="<%= post.id %>" datetime="<%= post.createdAt %>"><%= post.createdAt %></p>
 			<ul class="editScreenLinks">
