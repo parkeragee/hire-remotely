@@ -11,54 +11,53 @@ module.exports = {
   attributes: {
   	
   	jobTitle: {
-  		type: 'string',
-  		required: true,
-
+  		type: 'string'
+  		// required: true
   	},
 
   	profession: {
-      type: 'string',
-      required: true
+      type: 'string'
+      // required: true
   	},
 
     jobDescription: {
-      type: 'text',
-      required: true
+      type: 'text'
+      // required: true
     },
 
     howToApply: {
-      type: 'text',
-      required: true
+      type: 'text'
+      // required: true
     },
 
     oneLiner: {
-      type: 'text',
-      required: true
+      type: 'text'
+      // required: true
     },
 
     companyName: {
-      type: 'string',
-      required: true
+      type: 'string'
+      // required: true
     },
 
     homeOffice: {
-      type: 'string',
-      required: true
+      type: 'string'
+      // required: true
     },
 
     companyURL: {
-      type: 'string',
-      required: true
+      type: 'string'
+      // required: true
     },
 
     usOnly : {
-      type: 'string',
-      required: true
+      type: 'string'
+      // required: true
     },
 
     userID: {
-      type: 'string',
-      required: true
+      type: 'string'
+      // required: true
     },
 
     active: {
