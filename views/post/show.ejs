@@ -31,7 +31,7 @@
         <form action="/post/apply" method="POST">
         	<div class="col-md-6 col-md-offset-3">
         	<label>Your email address:</label>
-        	<input type="text" class="form-control" name="applicantEmail" />
+        	<input type="email" class="form-control" name="applicantEmail" required />
         	<input type="hidden" value="<%= post.id %>" name="id" />
 	        </div>
 	        <div class="clearfix"></div>
