@@ -6,7 +6,7 @@
 					<p class="jobTitle"><%= post.jobTitle %></p>
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<a data-toggle="modal" data-target="#apply" class="btn<% if (!session.authenticated) { %> jobSubmission <% } %> pull-right" data-job="<%= post.id %>">APPLY FOR POSITION</a>
+					<a data-toggle="modal" data-target="#apply" class="btn pull-right">APPLY FOR POSITION</a>
 				</div>
 			</div>
 			<p><span class="company"><%= post.companyName %></span> <span class="location">(<%= post.homeOffice %>)</span></p><hr>
@@ -18,7 +18,7 @@
 			<div class="job-info">
 			</div>
 			<hr>
-			<a data-toggle="modal" data-target="#apply" class="btn btn-lg<% if (!session.authenticated) { %> jobSubmission<% } %> center-block" data-job="<%= post.id %>">APPLY FOR POSITION</a>
+			<a data-toggle="modal" data-target="#apply" class="btn btn-lg center-block">APPLY FOR POSITION</a>
 		</div>
 	</div>
 </div>
@@ -38,7 +38,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Apply</button>
+        <button type="submit" class="btn<% if (!session.authenticated) { %> jobSubmission <% } %> btn-primary" data-job="<%= post.id %>">Apply</button>
         </form>
       </div>
     </div>
