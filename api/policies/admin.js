@@ -5,7 +5,7 @@ module.exports = function (req, res, next) {
 	}
 
 	else {
-		var requireAdminError = [{name: 'requireAdminError', message: 'You must be an admin.'}];
+		var requireAdminError = ["You must be an admin to access this page."];
 		req.session.flash = {
 			err: requireAdminError
 		}
