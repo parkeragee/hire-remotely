@@ -13,6 +13,17 @@ body {
     user-select: @logoBlue;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
+
 .logoBlue {
     color: @logoBlue;
 }
@@ -37,6 +48,7 @@ h3.noPosts {
 
 p {
     margin-bottom: 0;
+    font-size: 22px;
 }
 
 #postSubmit {

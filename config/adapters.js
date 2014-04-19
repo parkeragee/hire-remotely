@@ -14,19 +14,19 @@
 
 module.exports.adapters = {
 
-  'default': 'mongo',
+  // 'default': 'mongo',
 
-  mongo: {
-    module      : 'sails-mongo',
-    url         : "mongodb://hireadmin:!ttilluB1@troup.mongohq.com:10065/hireremotely",
+  // mongo: {
+  //   module      : 'sails-mongo',
+  //   url         : "<mongoURL>",
 
-    schema      : true
-  },
+  //   schema      : true
+  // },
 
 
   'email': {
     adapter: 'sails-mandrill',
-    apiKey: process.env.RQQb6d2MdCu6EiP4cyAHDQ, // the api key for your mandrill account
+    apiKey: process.env.<apiKey>, // the api key for your mandrill account
     from: {
       name: 'Hire Remotely',
       email: 'parker@parkeragee.com'

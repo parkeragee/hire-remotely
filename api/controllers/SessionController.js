@@ -2,11 +2,7 @@
 module.exports = {
     
   'new': function (req, res) {
-
   	res.view();
-  	// req.session.authenticated = true;
-  	// console.log(req.session);
-  	// res.view();
   },
 
 	create: function (req, res, next) {

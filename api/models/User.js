@@ -109,8 +109,8 @@ module.exports = {
       var smtpTransport = nodemailer.createTransport("SMTP",{
           service: "Mandrill",
           auth: {
-              user: "parker@parkeragee.com",
-              pass: "RQQb6d2MdCu6EiP4cyAHDQ"
+              user: "<username>",
+              pass: "<password>"
           }
       });
 

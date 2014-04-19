@@ -38,7 +38,25 @@
 
 		    <form action="/post/new" class="col-sm-6 col-sm-offset-3" method="POST" id="postSubmit">
 
-		    <label>Job Title:</label>
+		    	<h2 class="editable" data-placeholder="Type job title" name="jobTitle"></h2><br>
+
+		    	<!-- <select class="form-control" type="text" name="profession" id="profession">
+					<option>Select Category</option>
+					<option value="programming">Programming</option>
+					<option value="design">Design</option>
+					<option value="marketing">Marketing</option>
+					<option value="systemAdmin">System Admin</option>
+					<option value="businessAdmin">Business Admin/Executive</option>
+					<option value="sales">Sales</option>
+					<option value="customerSupport">Customer Support</option>
+					<option value="misc">Miscellaneous</option>
+				</select><br> -->
+
+				<p class="editable2" name="oneLiner" data-placeholder="Type something awesome about your company" maxlength="50"></p> <br />
+
+				<p class="editable3" name="jobDescription" data-placeholder="Type job description" maxlength="50"></p><br>
+
+		    <!-- <label>Job Title:</label>
 			<input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="e.g. Ruby on Rails Developer"/><br>
 
 			<label>Position Type:</label>
@@ -85,7 +103,7 @@
 		    
 		    <div id="editor" name="jobDescription">
 		      
-		    </div>
+		    </div> 
 		    <br>
 
 			<label>Email address you want inquiries to be sent to:<br></label>
@@ -104,13 +122,13 @@
 			<select class="form-control" type="text" name="usOnly" id="usOnly">
 				<option value="no">No</option>
 				<option value="yes">Yes</option>
-			</select><br>
+			</select><br> -->
 
 			<input type="hidden" name="userID" value="<%= session.User.id %>" />
 			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
 
 		    <hr>
-		    <input type="submit" value="Post Job" class="btn savePost">
+		    <input type="button" value="Post Job" class="btn savePost">
 		  <!-- <script
 		  	src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		  	data-email="<%= req.session.User.email %>"

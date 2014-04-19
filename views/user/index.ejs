@@ -4,11 +4,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Email</th>
-			<th>Address</th>
-			<th>City</th>
-			<th>State</th>
-			<th>Zip Code</th>
-			<th>Phone Number</th>
+			<th>Company Name</th>
 			<th>Admin</th>
 			<th></th>
 			<th></th>
@@ -19,11 +15,7 @@
 		<tr data-id="<%= user.id %>" data-model="user">
 			<td><%= user.name %></td>
 			<td><%= user.email %></td>
-			<td><%= user.address %></td>
-			<td><%= user.city %></td>
-			<td><%= user.state %></td>
-			<td><%= user.zip %></td>
-			<td><%= user.phoneNumber %></td>
+			<td><%= user.companyName %></td>
 			<td><%= user.admin %></td>
 			<td><a href="/user/show/<%= user.id %>" class="btn btn-default btn-sm">Show</a></td>
 			<td><a href="/user/edit/<%= user.id %>" class="btn btn-info btn-sm">Edit</a></td>
