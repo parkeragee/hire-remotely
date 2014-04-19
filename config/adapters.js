@@ -26,7 +26,8 @@ module.exports.adapters = {
 
   'email': {
     adapter: 'sails-mandrill',
-    apiKey: process.env.<apiKey>, // the api key for your mandrill account
+    // the api key for your mandrill account
+    // apiKey: process.env.<apiKey>,
     from: {
       name: 'Hire Remotely',
       email: 'parker@parkeragee.com'
