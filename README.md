@@ -16,7 +16,7 @@ Move into the app directory
 
 Install the dependencies
 
-`npm instsall`
+`npm install`
 
 Run the app
 
