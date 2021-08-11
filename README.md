@@ -1,4 +1,4 @@
-# **This repo has not been maintained**
+# **This repo is not being maintained**
 
 Hire Remotely
 [http://hireremotely.herokuapp.com/](http://hireremotely.herokuapp.com/)
